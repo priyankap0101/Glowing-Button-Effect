@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glowing Button</title>
+    <style>
+      /* Global styles for center alignment */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #001f3d; /* Dark blue background for better contrast */
+        margin: 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      /* Glowing button style */
+      .glowing-button {
+        padding: 16px 40px;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-radius: 50px; /* Rounded edges */
+        color: white;
+        background-color: transparent;
+        border: 2px solid transparent;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.6),
+          0 0 10px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.4),
+          0 0 10px rgba(255, 255, 255, 0.4); /* Initial soft glow */
+      }
+
+      /* Hover effect */
+      .glowing-button:hover {
+        animation: glow 1.5s infinite; /* Glow animation when hovered */
+        box-shadow: 0 0 15px rgba(255, 0, 255, 1), 0 0 30px rgba(255, 0, 255, 1),
+          0 0 45px rgba(0, 255, 0, 1), 0 0 60px rgba(0, 255, 255, 1); /* Brighter glowing effect with multiple colors */
+        text-shadow: 0 0 10px rgba(255, 0, 255, 0.7),
+          0 0 20px rgba(0, 255, 0, 0.7), 0 0 30px rgba(0, 255, 255, 0.7); /* More pronounced text glow */
+      }
+
+      /* Animation keyframes for glow effect */
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 10px rgba(255, 0, 255, 0.5),
+            0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 0, 0.5),
+            0 0 40px rgba(0, 255, 255, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(255, 0, 255, 1),
+            0 0 30px rgba(255, 0, 255, 1), 0 0 40px rgba(0, 255, 0, 1),
+            0 0 50px rgba(0, 255, 255, 1);
+        }
+        100% {
+          box-shadow: 0 0 10px rgba(255, 0, 255, 0.5),
+            0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 0, 0.5),
+            0 0 40px rgba(0, 255, 255, 0.5);
+        }
+      }
+
+      /* Focus effect */
+      .glowing-button:focus {
+        outline: none;
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.8),
+          0 0 40px rgba(0, 255, 0, 0.8), 0 0 60px rgba(0, 255, 255, 0.8); /* Focus glow */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Glowing Button -->
+    <button class="glowing-button">Click Me</button>
+  </body>
+</html>
