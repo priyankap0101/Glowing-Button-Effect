@@ -1,93 +1,69 @@
+ /* Global body styles */
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a; /* Dark background */
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
 
-    /* Global Styles */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #1c1e27;  /* Deep charcoal background */
-      font-family: 'Roboto', sans-serif;
-      color: #fff;
-    }
+  /* Simple glowing button style */
+  .glowing-button {
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 30px; /* Rounded button */
+    cursor: pointer;
+    outline: none;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6),
+      0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4),
+      0 0 10px rgba(255, 255, 255, 0.4); /* Initial soft glow */
+    transition: all 0.4s ease-in-out; /* Smooth transition */
+  }
 
-    /* Glowing Gradient Button Styles */
-    .glowing-button {
-      padding: 15px 40px;
-      font-size: 18px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border: 2px solid transparent;
-      border-radius: 50px;
-      background: linear-gradient(45deg, #00b0b9, #00d1b2, #6a4fff); /* Gradient from deep teal to bright cyan to soft purple */
-      color: #fff;
-      cursor: pointer;
-      outline: none;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 20px rgba(0, 209, 178, 0.6), 0 4px 40px rgba(0, 209, 178, 0.3);
-    }
+  /* Flashing effect on hover */
+  .glowing-button:hover {
+    animation: flash 1s infinite; /* Flashing effect */
+  }
 
-    /* Glowing Gradient Effect */
-    .glowing-button::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 300%;
-      height: 300%;
-      background: linear-gradient(45deg, #00b0b9, #00d1b2, #6a4fff); /* Matching gradient to the button */
-      animation: glowing 3s infinite ease-in-out;
-      filter: blur(10px);
-      opacity: 0.5;
-      transform: translate(-50%, -50%);
+  /* Flashing animation keyframes */
+  @keyframes flash {
+    0% {
+      box-shadow: 0 0 10px rgba(0, 255, 255, 1),
+        0 0 20px rgba(0, 255, 255, 1);
+      text-shadow: 0 0 10px rgba(0, 255, 255, 1);
     }
+    25% {
+      box-shadow: 0 0 25px rgba(0, 255, 255, 1),
+        0 0 40px rgba(0, 255, 255, 1);
+      text-shadow: 0 0 15px rgba(0, 255, 255, 1);
+    }
+    50% {
+      box-shadow: 0 0 35px rgba(0, 255, 255, 1),
+        0 0 50px rgba(0, 255, 255, 1);
+      text-shadow: 0 0 20px rgba(0, 255, 255, 1);
+    }
+    75% {
+      box-shadow: 0 0 45px rgba(0, 255, 255, 1),
+        0 0 60px rgba(0, 255, 255, 1);
+      text-shadow: 0 0 25px rgba(0, 255, 255, 1);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(0, 255, 255, 1),
+        0 0 20px rgba(0, 255, 255, 1);
+      text-shadow: 0 0 10px rgba(0, 255, 255, 1);
+    }
+  }
 
-    /* Hover Effect */
-    .glowing-button:hover {
-      color: #fff;
-      border-color: #ff5c8d;  /* Soft pink border on hover */
-      box-shadow: 0 0 30px rgba(0, 209, 178, 0.8), 0 4px 60px rgba(0, 209, 178, 0.4);
-      transform: translateY(-5px);
-      background: linear-gradient(45deg, #00d1b2, #00b0b9, #6a4fff);  /* Keep the same gradient on hover */
-    }
-
-    /* Active State */
-    .glowing-button:active {
-      transform: translateY(-2px);
-      box-shadow: 0 0 10px rgba(0, 209, 178, 0.5), 0 4px 30px rgba(0, 209, 178, 0.3);
-      background: linear-gradient(45deg, #6a4fff, #00b0b9, #00d1b2); /* Reverse gradient on click */
-    }
-
-    /* Focus State */
-    .glowing-button:focus {
-      outline: none;
-      box-shadow: 0 0 15px rgba(0, 209, 178, 0.8), 0 4px 30px rgba(0, 209, 178, 0.5);
-    }
-
-    /* Glowing Animation */
-    @keyframes glowing {
-      0% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.1);
-      }
-      100% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-
-    /* Responsive Design for Mobile */
-    @media (max-width: 600px) {
-      .glowing-button {
-        font-size: 16px;
-        padding: 12px 30px;
-      }
-    }
-  
+  /* Focus effect (when button is focused) */
+  .glowing-button:focus {
+    outline: none;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 1);
+  }
